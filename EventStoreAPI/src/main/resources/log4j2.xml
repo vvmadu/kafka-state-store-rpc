@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" shutdownHook="disabled">
+
+    <Appender name="Console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+        </layout>
+    </Appender>
+
+    <Appender name="FileAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="demoApplication.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+        </layout>
+    </Appender>
+
+    <Loggers>
+        <Root level="${sys:systemLogLevel}">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="FileAppender"/>-->
+        </Root>
+    </Loggers>
+
+</Configuration>
